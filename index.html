@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>D.N.A | T-Shirts</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+            color: #111;
+        }
+
+        /* Header */
+
+        header {
+            background: #111;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 40px;
+            letter-spacing: 5px;
+        }
+
+        header p {
+            margin-top: 8px;
+            color: #ccc;
+        }
+
+        /* Products */
+
+        .products {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+        }
+
+        .product {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px #0002;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+
+        .product-image {
+            height: 280px;
+            background: #ddd;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 80px;
+        }
+
+        .product h2 {
+            margin: 18px 0 8px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            margin-bottom: 15px;
+            width: 80%;
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+        }
+
+        .add {
+            background: #111;
+            color: white;
+        }
+
+        .add:hover {
+            background: #333;
+        }
+
+        /* Cart */
+
+        .cart {
+            max-width: 700px;
+            background: white;
+            margin: 30px auto;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #0002;
+        }
+
+        .cart h2 {
+            margin-bottom: 20px;
+        }
+
+        .cart-item {
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .quantity button {
+            padding: 5px 10px;
+            background: #eee;
+        }
+
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        /* Customer */
+
+        .customer {
+            margin-top: 25px;
+        }
+
+        .customer input {
+            width: 100%;
+            padding: 13px;
+            margin: 7px 0;
+
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .order {
+            width: 100%;
+            margin-top: 15px;
+            background: #25D366;
+            color: white;
+            font-size: 18px;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>D.N.A</h1>
+
+    <p>Premium T-Shirts</p>
+
+</header>
+
+
+<section class="products">
+
+
+    <!-- Product 1 -->
+
+    <div class="product">
+
+        <div class="product-image">
+            👕
+        </div>
+
+        <h2>D.N.A Black</h2>
+
+        <div class="price">
+            500 جنيه
+        </div>
+
+        <select id="size1">
+
+            <option value="S">المقاس S</option>
+            <option value="M">المقاس M</option>
+            <option value="L">المقاس L</option>
+            <option value="XL">المقاس XL</option>
+
+        </select>
+
+        <br>
+
+        <button
+            class="add"
+            onclick="addToCart('D.N.A Black', 500, 'size1')">
+
+            أضف للسلة
+
+        </button>
+
+    </div>
+
+
+
+    <!-- Product 2 -->
+
+    <div class="product">
+
+        <div class="product-image">
+            👕
+        </div>
+
+        <h2>D.N.A White</h2>
+
+        <div class="price">
+            500 جنيه
+        </div>
+
+        <select id="size2">
+
+            <option value="S">المقاس S</option>
+            <option value="M">المقاس M</option>
+            <option value="L">المقاس L</option>
+            <option value="XL">المقاس XL</option>
+
+        </select>
+
+        <br>
+
+        <button
+            class="add"
+            onclick="addToCart('D.N.A White', 500, 'size2')">
+
+            أضف للسلة
+
+        </button>
+
+    </div>
+
+
+
+    <!-- Product 3 -->
+
+    <div class="product">
+
+        <div class="product-image">
+            👕
+        </div>
+
+        <h2>D.N.A Oversized</h2>
+
+        <div class="price">
+            600 جنيه
+        </div>
+
+        <select id="size3">
+
+            <option value="M">المقاس M</option>
+            <option value="L">المقاس L</option>
+            <option value="XL">المقاس XL</option>
+            <option value="XXL">المقاس XXL</option>
+
+        </select>
+
+        <br>
+
+        <button
+            class="add"
+            onclick="addToCart('D.N.A Oversized', 600, 'size3')">
+
+            أضف للسلة
+
+        </button>
+
+    </div>
+
+
+</section>
+
+
+
+<!-- Cart -->
+
+<section class="cart">
+
+    <h2>🛒 سلة المشتريات</h2>
+
+    <div id="cartItems">
+
+        <p>السلة فارغة</p>
+
+    </div>
+
+    <div class="total">
+
+        الإجمالي:
+        <span id="total">0</span>
+        جنيه
+
+    </div>
+
+
+
+    <!-- Customer -->
+
+    <div class="customer">
+
+        <h3>بيانات العميل</h3>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="اسم العميل">
+
+        <input
+            type="text"
+            id="customerPhone"
+            placeholder="رقم الهاتف">
+
+        <input
+            type="text"
+            id="customerAddress"
+            placeholder="العنوان">
+
+        <button
+            class="order"
+            onclick="sendOrder()">
+
+            📱 إرسال الطلب عبر واتساب
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<footer>
+
+    D.N.A © 2026
+
+</footer>
+
+
+
+<script>
+
+    let cart = [];
+
+
+    function addToCart(name, price, sizeID) {
+
+        let size =
+            document.getElementById(sizeID).value;
+
+        cart.push({
+
+            name: name,
+
+            price: price,
+
+            size: size,
+
+            quantity: 1
+
+        });
+
+        displayCart();
+
+    }
+
+
+
+    function increase(index) {
+
+        cart[index].quantity++;
+
+        displayCart();
+
+    }
+
+
+
+    function decrease(index) {
+
+        cart[index].quantity--;
+
+        if (cart[index].quantity <= 0) {
+
+            cart.splice(index, 1);
+
+        }
+
+        displayCart();
+
+    }
+
+
+
+    function displayCart() {
+
+        let container =
+            document.getElementById("cartItems");
+
+        let totalElement =
+            document.getElementById("total");
+
+        container.innerHTML = "";
+
+        let total = 0;
+
+
+        if (cart.length === 0) {
+
+            container.innerHTML =
+                "<p>السلة فارغة</p>";
+
+        }
+
+
+        cart.forEach((item, index) => {
+
+            let itemTotal =
+                item.price * item.quantity;
+
+            total += itemTotal;
+
+
+            container.innerHTML += `
+
+                <div class="cart-item">
+
+                    <div>
+
+                        <strong>
+                            ${item.name}
+                        </strong>
+
+                        <br>
+
+                        المقاس:
+                        ${item.size}
+
+                        <br>
+
+                        ${itemTotal} جنيه
+
+                    </div>
+
+
+                    <div class="quantity">
+
+                        <button
+                            onclick="decrease(${index})">
+
+                            -
+
+                        </button>
+
+                        ${item.quantity}
+
+                        <button
+                            onclick="increase(${index})">
+
+                            +
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        });
+
+
+        totalElement.textContent = total;
+
+    }
+
+
+
+    function sendOrder() {
+
+        if (cart.length === 0) {
+
+            alert("السلة فارغة");
+
+            return;
+
+        }
+
+
+        let name =
+            document.getElementById("customerName").value;
+
+        let phone =
+            document.getElementById("customerPhone").value;
+
+        let address =
+            document.getElementById("customerAddress").value;
+
+
+        if (
+            name === "" ||
+            phone === "" ||
+            address === ""
+        ) {
+
+            alert("من فضلك اكتب بيانات العميل كاملة");
+
+            return;
+
+        }
+
+
+        let message =
+            "طلب جديد من D.N.A 👕%0A%0A";
+
+
+        message +=
+            "الاسم: " + name + "%0A";
+
+        message +=
+            "الهاتف: " + phone + "%0A";
+
+        message +=
+            "العنوان: " + address + "%0A%0A";
+
+
+        let total = 0;
+
+
+        cart.forEach(item => {
+
+            let itemTotal =
+                item.price * item.quantity;
+
+            total += itemTotal;
+
+
+            message +=
+                item.name +
+                " | المقاس: " +
+                item.size +
+                " | الكمية: " +
+                item.quantity +
+                " | " +
+                itemTotal +
+                " جنيه%0A";
+
+        });
+
+
+        message +=
+            "%0Aالإجمالي: " +
+            total +
+            " جنيه";
+
+
+        /*
+        غير الرقم ده لرقم واتساب الخاص بالبراند
+        واكتب كود الدولة بدون +
+        */
+
+        let whatsappNumber =
+            "201000000000";
+
+
+        window.open(
+
+            "https://wa.me/" +
+            whatsappNumber +
+            "?text=" +
+            message,
+
+            "_blank"
+
+        );
+
+    }
+
+</script>
+
+</body>
+</html>
